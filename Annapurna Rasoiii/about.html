@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About - Annapurna</title>
+
+<style>
+
+/* ================= RESET ================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ================= BODY ================= */
+body{
+    font-family: 'Segoe UI', sans-serif;
+    color:#fff;
+    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)),
+    url('https://images.unsplash.com/photo-1504674900247-0877df9cc836') no-repeat center/cover;
+    min-height:100vh;
+}
+
+/* ================= NAVBAR ================= */
+header{
+    padding:15px 0;
+    background:rgba(0,0,0,0.6);
+}
+
+.navbar{
+    width:90%;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.navbar h1{
+    color:#C8A96A;
+}
+
+.navbar a{
+    color:#fff;
+    margin-left:20px;
+    text-decoration:none;
+    font-size:14px;
+}
+
+/* ================= MAIN CONTAINER ================= */
+.container{
+    width:90%;
+    max-width:1000px;
+    margin:40px auto;
+}
+
+/* ================= CARD ================= */
+.card{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(12px);
+    padding:25px;
+    border-radius:12px;
+    margin-bottom:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* ================= HEADINGS ================= */
+h2{
+    color:#C8A96A;
+    margin-bottom:10px;
+}
+
+/* ================= TEXT ================= */
+p{
+    font-size:15px;
+    line-height:1.6;
+}
+
+/* ================= SERVICES LIST ================= */
+ul{
+    margin-top:10px;
+    padding-left:20px;
+}
+
+li{
+    margin:6px 0;
+}
+
+/* ================= GRID ================= */
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:768px){
+    .grid{
+        grid-template-columns:1fr;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header>
+<div class="navbar">
+<h1>Annapurna</h1>
+<div>
+<a href="index.html">Home</a>
+<a href="menu.html">Menu</a>
+<a href="reservation.html">Reservation</a>
+</div>
+</div>
+</header>
+
+<!-- ================= MAIN CONTENT ================= -->
+<div class="container">
+
+<!-- BUSINESS NAME -->
+<div class="card">
+<h2>About Annapurna</h2>
+<p>
+Annapurna is a premium dining destination located in Hazratganj, Lucknow, offering a perfect blend 
+of traditional Indian flavors and modern hospitality. Our mission is to provide an unforgettable 
+dining experience through quality food, elegant ambience, and exceptional service.
+</p>
+</div>
+
+<!-- ADDRESS -->
+<div class="card">
+<h2>Address</h2>
+<p>📍 21 MG Road, Hazratganj, Lucknow, Uttar Pradesh, India</p>
+<p>📞 +91 9876543210</p>
+<p>📧 annapurna@gmail.com</p>
+</div>
+
+<!-- WORKING DETAILS -->
+<div class="grid">
+
+<div class="card">
+<h2>Working Days</h2>
+<p>Monday – Sunday (Open All Days)</p>
+</div>
+
+<div class="card">
+<h2>Working Hours</h2>
+<p>12:00 PM – 11:00 PM</p>
+</div>
+
+</div>
+
+<!-- SERVICES -->
+<div class="card">
+<h2>Services Offered</h2>
+
+<ul>
+<li>🍽️ Fine Dining Experience</li>
+<li>🥡 Takeaway & Quick Service</li>
+<li>🚚 Home Delivery</li>
+<li>🎉 Party & Event Bookings</li>
+<li>🍰 Special Occasion Arrangements</li>
+<li>🪑 Table Reservation System</li>
+<li>💳 Multiple Payment Options (Cash, UPI, Card)</li>
+</ul>
+
+</div>
+
+<!-- THEME DESCRIPTION -->
+<div class="card">
+<h2>Our Theme</h2>
+<p>
+Our restaurant follows a luxury-inspired theme with warm lighting, elegant interiors, and a calm 
+ambience. The gold and dark color palette reflects sophistication while ensuring a comfortable and 
+welcoming atmosphere for every guest.
+</p>
+</div>
+
+</div>
+
+</body>
+</html>

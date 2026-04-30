@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reservation - Annapurna</title>
+
+<style>
+
+/* ================= RESET ================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ================= BODY ================= */
+body{
+    font-family: 'Segoe UI', sans-serif;
+    height:100vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+    url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0') center/cover no-repeat;
+    color:#fff;
+}
+
+/* ================= NAVBAR ================= */
+header{
+    width:100%;
+    background: rgba(0,0,0,0.6);
+    padding:15px 0;
+}
+
+.navbar{
+    width:90%;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.navbar h1{
+    color:#C8A96A;
+}
+
+.navbar a{
+    color:#fff;
+    margin-left:20px;
+    text-decoration:none;
+}
+
+/* ================= MAIN CONTAINER ================= */
+.container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:85vh;
+}
+
+/* ================= FORM CARD ================= */
+.form-card{
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px);
+    padding:30px;
+    width:350px;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* ================= HEADINGS ================= */
+.form-card h2{
+    text-align:center;
+    margin-bottom:20px;
+    color:#C8A96A;
+}
+
+/* ================= INPUTS ================= */
+input, select{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:none;
+    border-radius:6px;
+}
+
+/* ================= BUTTON ================= */
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    background:#C8A96A;
+    color:#000;
+    font-weight:bold;
+    cursor:pointer;
+    border-radius:6px;
+}
+
+button:hover{
+    background:#e6c98c;
+}
+
+/* ================= INFO ================= */
+.info{
+    text-align:center;
+    margin-top:15px;
+    font-size:14px;
+}
+
+/* ================= POPUP ================= */
+.popup{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.8);
+    display:none;
+    justify-content:center;
+    align-items:center;
+}
+
+/* SHOW POPUP */
+#success:target{
+    display:flex;
+}
+
+/* POPUP BOX */
+.popup-box{
+    background:#fff;
+    color:#000;
+    padding:30px;
+    border-radius:10px;
+    text-align:center;
+    width:300px;
+}
+
+.popup-box h3{
+    color:green;
+    margin-bottom:10px;
+}
+
+.popup-box a{
+    display:inline-block;
+    margin-top:15px;
+    padding:8px 15px;
+    background:#C8A96A;
+    color:#000;
+    text-decoration:none;
+    border-radius:5px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:768px){
+    .form-card{
+        width:90%;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header>
+<div class="navbar">
+<h1>Annapurna</h1>
+<div>
+<a href="index.html">Home</a>
+<a href="menu.html">Menu</a>
+<a href="contact.html">Contact</a>
+</div>
+</div>
+</header>
+
+<!-- ================= MAIN FORM ================= -->
+<div class="container">
+
+<div class="form-card">
+
+<h2>Book Your Table 🍽️</h2>
+
+<!-- FORM -->
+<form action="#success">
+
+<input type="text" placeholder="Full Name" required>
+<input type="email" placeholder="Email Address" required>
+<input type="tel" placeholder="Phone Number" required>
+
+<input type="date" required>
+
+<select required>
+<option value="">Select Time</option>
+<option>12:00 PM</option>
+<option>2:00 PM</option>
+<option>7:00 PM</option>
+<option>9:00 PM</option>
+</select>
+
+<input type="number" placeholder="Number of Guests" required>
+
+<select>
+<option>Occasion (Optional)</option>
+<option>Birthday</option>
+<option>Anniversary</option>
+<option>Dinner</option>
+</select>
+
+<button type="submit">Confirm Booking</button>
+
+</form>
+
+<div class="info">
+<p>📍 Hazratganj, Lucknow</p>
+<p>📞 +91 9876543210</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= POPUP ================= -->
+<div id="success" class="popup">
+<div class="popup-box">
+
+<h3>🎉 Reservation Confirmed!</h3>
+<p>Your table has been successfully booked.</p>
+
+<a href="#">Close</a>
+
+</div>
+</div>
+
+</body>
+</html>

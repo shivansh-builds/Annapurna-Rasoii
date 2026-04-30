@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - Annapurna</title>
+
+<style>
+
+/* ================= RESET ================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ================= BODY ================= */
+body{
+    font-family:'Segoe UI', sans-serif;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
+    url('https://images.unsplash.com/photo-1498654896293-37aacf113fd9') center/cover no-repeat;
+    color:#fff;
+}
+
+/* ================= NAVBAR ================= */
+header{
+    padding:15px 0;
+    background:rgba(0,0,0,0.6);
+}
+
+.navbar{
+    width:90%;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.navbar h1{
+    color:#C8A96A;
+}
+
+.navbar a{
+    color:#fff;
+    margin-left:20px;
+    text-decoration:none;
+}
+
+/* ================= CONTAINER ================= */
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:40px auto;
+}
+
+/* ================= GRID ================= */
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+/* ================= CARD ================= */
+.card{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    padding:25px;
+    border-radius:12px;
+}
+
+/* ================= HEADINGS ================= */
+h2{
+    color:#C8A96A;
+    margin-bottom:15px;
+}
+
+/* ================= INPUTS ================= */
+input, textarea{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border:none;
+    border-radius:5px;
+}
+
+/* ================= BUTTON ================= */
+button{
+    padding:10px 20px;
+    background:#C8A96A;
+    border:none;
+    color:#000;
+    font-weight:bold;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+/* ================= RATING ================= */
+.rating{
+    display:flex;
+    flex-direction:row-reverse;
+    justify-content:flex-end;
+}
+
+.rating input{
+    display:none;
+}
+
+.rating label{
+    font-size:25px;
+    color:#444;
+    cursor:pointer;
+}
+
+.rating input:checked ~ label,
+.rating label:hover,
+.rating label:hover ~ label{
+    color:gold;
+}
+
+/* ================= POPUP ================= */
+.popup{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.8);
+    display:none;
+    justify-content:center;
+    align-items:center;
+}
+
+.popup-box{
+    background:#fff;
+    color:#000;
+    padding:30px;
+    border-radius:10px;
+    text-align:center;
+}
+
+/* ================= MAP ================= */
+iframe{
+    width:100%;
+    height:200px;
+    border-radius:10px;
+    border:none;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:768px){
+    .grid{
+        grid-template-columns:1fr;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header>
+<div class="navbar">
+<h1>Annapurna</h1>
+<div>
+<a href="index.html">Home</a>
+<a href="menu.html">Menu</a>
+<a href="reservation.html">Reservation</a>
+<a href="about.html">About</a>
+</div>
+</div>
+</header>
+
+<!-- ================= MAIN ================= -->
+<div class="container grid">
+
+<!-- CONTACT FORM -->
+<div class="card">
+<h2>Contact Us</h2>
+
+<form id="contactForm">
+
+<input type="text" placeholder="Your Name" required>
+<input type="email" placeholder="Your Email" required>
+<textarea rows="4" placeholder="Your Message" required></textarea>
+
+<button type="submit">Send Message</button>
+
+</form>
+</div>
+
+<!-- INFO + MAP -->
+<div class="card">
+<h2>Reach Us</h2>
+<p>📍 21 MG Road, Hazratganj, Lucknow</p>
+<p>📞 +91 9876543210</p>
+<p>📧 annapurna@gmail.com</p>
+
+<br>
+
+<iframe src="https://maps.google.com/maps?q=hazratganj%20lucknow&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+
+</div>
+
+</div>
+
+<!-- ================= RATINGS ================= -->
+<div class="container">
+<div class="card">
+
+<h2>Rate Your Experience ⭐</h2>
+
+<div class="rating">
+<input type="radio" name="star" id="star5"><label for="star5">★</label>
+<input type="radio" name="star" id="star4"><label for="star4">★</label>
+<input type="radio" name="star" id="star3"><label for="star3">★</label>
+<input type="radio" name="star" id="star2"><label for="star2">★</label>
+<input type="radio" name="star" id="star1"><label for="star1">★</label>
+</div>
+
+<br>
+
+<textarea id="reviewText" placeholder="Write your review..."></textarea>
+
+<br>
+
+<button onclick="submitReview()">Submit Review</button>
+
+<ul id="reviewsList"></ul>
+
+</div>
+</div>
+
+<!-- ================= POPUP ================= -->
+<div id="popup" class="popup">
+<div class="popup-box">
+<h3>✅ Submitted Successfully!</h3>
+<button onclick="closePopup()">Close</button>
+</div>
+</div>
+
+<script>
+
+/* FORM SUBMIT */
+document.getElementById("contactForm").addEventListener("submit", function(e){
+e.preventDefault();
+showPopup();
+});
+
+/* REVIEW SUBMIT */
+function submitReview(){
+let text = document.getElementById("reviewText").value;
+
+if(text.trim() === "") return;
+
+let li = document.createElement("li");
+li.innerText = text;
+
+document.getElementById("reviewsList").appendChild(li);
+document.getElementById("reviewText").value = "";
+
+showPopup();
+}
+
+/* POPUP */
+function showPopup(){
+document.getElementById("popup").style.display = "flex";
+}
+
+function closePopup(){
+document.getElementById("popup").style.display = "none";
+}
+
+</script>
+
+</body>
+</html>

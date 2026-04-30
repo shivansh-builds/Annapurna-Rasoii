@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Annapurna Restaurant</title>
+
+<style>
+
+/* ================= RESET ================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ================= BODY ================= */
+body{
+    font-family:'Segoe UI', sans-serif;
+    background:#fff8f0;
+    color:#333;
+}
+
+/* ================= NAVBAR ================= */
+header{
+    background:#ff7a00;
+    padding:15px 0;
+}
+
+.navbar{
+    width:90%;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.navbar h1{
+    color:#fff;
+}
+
+.navbar a{
+    color:#fff;
+    margin-left:20px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* ================= HERO ================= */
+.hero{
+    height:85vh;
+    background:url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5') center/cover no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:#fff;
+}
+
+.hero-content{
+    background:rgba(0,0,0,0.5);
+    padding:30px;
+    border-radius:10px;
+}
+
+.hero h2{
+    font-size:42px;
+}
+
+.hero p{
+    margin:10px 0;
+    font-size:18px;
+}
+
+.hero button{
+    padding:10px 20px;
+    border:none;
+    background:#ff7a00;
+    color:#fff;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+/* ================= SECTION ================= */
+.section{
+    padding:50px 10%;
+}
+
+/* ================= GRID ================= */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+/* ================= CARD ================= */
+.card{
+    background:#fff;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    overflow:hidden;
+}
+
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+.card h3{
+    padding:10px;
+}
+
+.card p{
+    padding:0 10px 10px;
+}
+
+/* ================= ABOUT ================= */
+.about{
+    text-align:center;
+}
+
+.about p{
+    max-width:700px;
+    margin:auto;
+}
+
+/* ================= FOOTER ================= */
+footer{
+    background:#ff7a00;
+    color:#fff;
+    text-align:center;
+    padding:15px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:768px){
+    .hero h2{
+        font-size:28px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header>
+<div class="navbar">
+<h1>Annapurna</h1>
+<div>
+<a href="index.html">Home</a>
+<a href="menu.html">Menu</a>
+<a href="reservation.html">Reservation</a>
+<a href="contact.html">Contact</a>
+<a href="admin.html">Admin</a>
+</div>
+</div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+<div class="hero-content">
+<h2>Delicious Food, Happy Moments 🍽️</h2>
+<p>Experience the authentic taste of India at Annapurna</p>
+<button onclick="location.href='menu.html'">Explore Menu</button>
+</div>
+</section>
+
+<!-- ================= POPULAR DISHES ================= -->
+<section class="section">
+<h2 style="text-align:center;">Popular Dishes</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398">
+<h3>Paneer Butter Masala</h3>
+<p>Rich creamy delight loved by everyone</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1601050690597-df0568f70950">
+<h3>Momos</h3>
+<p>Steamed dumplings served with spicy chutney</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1551024601-bec78aea704b">
+<h3>Mojito</h3>
+<p>Refreshing mint drink for every mood</p>
+</div>
+
+</div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="section about">
+<h2>About Annapurna</h2>
+<p>
+Located in the heart of Hazratganj, Lucknow, Annapurna is your go-to destination for 
+delicious food, quick service, and a cozy dining experience. Whether you're here for 
+family dinner or casual hangout, we serve happiness in every bite.
+</p>
+</section>
+
+<!-- ================= WHY US ================= -->
+<section class="section">
+<h2 style="text-align:center;">Why Choose Us?</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Fresh Ingredients</h3>
+<p>We use only high-quality fresh ingredients.</p>
+</div>
+
+<div class="card">
+<h3>Fast Service</h3>
+<p>Quick and efficient service for all customers.</p>
+</div>
+
+<div class="card">
+<h3>Affordable Prices</h3>
+<p>Great food at pocket-friendly prices.</p>
+</div>
+
+</div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+<p>📍 21 MG Road, Hazratganj, Lucknow | 📞 +91 9876543210</p>
+</footer>
+
+</body>
+</html>

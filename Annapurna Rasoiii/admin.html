@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard - Annapurna</title>
+
+<style>
+
+/* ================= RESET ================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ================= BODY ================= */
+body{
+    font-family:'Segoe UI', sans-serif;
+    background:#111;
+    color:#fff;
+    display:flex;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar{
+    width:220px;
+    height:100vh;
+    background:#000;
+    padding:20px;
+    position:fixed;
+}
+
+.sidebar h2{
+    color:#C8A96A;
+    margin-bottom:30px;
+}
+
+.sidebar a{
+    display:block;
+    color:#fff;
+    padding:10px;
+    text-decoration:none;
+    margin-bottom:10px;
+}
+
+.sidebar a:hover{
+    background:#C8A96A;
+    color:#000;
+}
+
+/* ================= MAIN ================= */
+.main{
+    margin-left:220px;
+    padding:20px;
+    width:100%;
+}
+
+/* ================= CARDS ================= */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+    margin-bottom:30px;
+}
+
+.card{
+    background:#222;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+}
+
+/* ================= TABLE ================= */
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+}
+
+th, td{
+    padding:10px;
+    border-bottom:1px solid #444;
+    text-align:left;
+}
+
+/* ================= STATUS ================= */
+.status{
+    padding:5px 10px;
+    border-radius:5px;
+}
+
+.pending{background:orange;}
+.completed{background:green;}
+.paid{background:green;}
+.unpaid{background:red;}
+
+button{
+    padding:5px 10px;
+    border:none;
+    background:#C8A96A;
+    cursor:pointer;
+}
+
+section{
+    margin-bottom:40px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+<div class="sidebar">
+<h2>Annapurna</h2>
+<a href="#dashboard">Dashboard</a>
+<a href="#orders">Orders</a>
+<a href="#reservations">Reservations</a>
+<a href="#payments">Payments</a>
+<a href="#reviews">Reviews</a>
+</div>
+
+<!-- ================= MAIN ================= -->
+<div class="main">
+
+<!-- ================= DASHBOARD ================= -->
+<section id="dashboard">
+<h2>Dashboard</h2>
+
+<div class="cards">
+<div class="card">
+<h3 id="totalOrders">0</h3>
+<p>Total Orders</p>
+</div>
+
+<div class="card">
+<h3 id="totalReservations">0</h3>
+<p>Reservations</p>
+</div>
+
+<div class="card">
+<h3 id="totalRevenue">₹0</h3>
+<p>Revenue</p>
+</div>
+
+<div class="card">
+<h3 id="avgRating">0 ⭐</h3>
+<p>Avg Rating</p>
+</div>
+</div>
+</section>
+
+<!-- ================= ORDERS ================= -->
+<section id="orders">
+<h2>Orders</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody id="ordersTable"></tbody>
+</table>
+</section>
+
+<!-- ================= RESERVATIONS ================= -->
+<section id="reservations">
+<h2>Reservations</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody id="resTable"></tbody>
+</table>
+</section>
+
+<!-- ================= PAYMENTS ================= -->
+<section id="payments">
+<h2>Payments</h2>
+<table>
+<thead>
+<tr>
+<th>Order</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody id="paymentTable"></tbody>
+</table>
+</section>
+
+<!-- ================= REVIEWS ================= -->
+<section id="reviews">
+<h2>Reviews</h2>
+<ul id="reviewList"></ul>
+</section>
+
+</div>
+
+<script>
+
+/* ================= LOAD DATA ================= */
+
+let orders = JSON.parse(localStorage.getItem("cart")) || [];
+let reservations = JSON.parse(localStorage.getItem("res")) || [];
+let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+/* ================= DASHBOARD ================= */
+
+document.getElementById("totalOrders").innerText = orders.length;
+document.getElementById("totalReservations").innerText = reservations.length;
+document.getElementById("totalRevenue").innerText = "₹" + (orders.length * 200);
+
+/* AVG RATING */
+if(reviews.length > 0){
+let avg = reviews.reduce((a,b)=>a+b.rating,0)/reviews.length;
+document.getElementById("avgRating").innerText = avg.toFixed(1) + " ⭐";
+}
+
+/* ================= ORDERS ================= */
+
+let ordersTable = document.getElementById("ordersTable");
+
+orders.forEach((item,i)=>{
+
+let tr = document.createElement("tr");
+
+tr.innerHTML = `
+<td>${item}</td>
+<td><span class="status pending">Pending</span></td>
+<td><button onclick="completeOrder(${i})">Complete</button></td>
+`;
+
+ordersTable.appendChild(tr);
+
+});
+
+/* COMPLETE ORDER */
+function completeOrder(i){
+orders.splice(i,1);
+localStorage.setItem("cart", JSON.stringify(orders));
+location.reload();
+}
+
+/* ================= RESERVATIONS ================= */
+
+let resTable = document.getElementById("resTable");
+
+reservations.forEach(r=>{
+let tr = document.createElement("tr");
+tr.innerHTML = `<td>${r.name}</td><td>${r.date}</td>`;
+resTable.appendChild(tr);
+});
+
+/* ================= PAYMENTS ================= */
+
+let payTable = document.getElementById("paymentTable");
+
+orders.forEach((item,i)=>{
+
+let tr = document.createElement("tr");
+
+tr.innerHTML = `
+<td>${item}</td>
+<td><span class="status unpaid">Unpaid</span></td>
+<td><button onclick="markPaid(${i})">Mark Paid</button></td>
+`;
+
+payTable.appendChild(tr);
+
+});
+
+/* MARK PAID */
+function markPaid(i){
+alert("Payment marked as Paid");
+}
+
+/* ================= REVIEWS ================= */
+
+let reviewList = document.getElementById("reviewList");
+
+reviews.forEach(r=>{
+let li = document.createElement("li");
+li.innerText = r.text + " - " + r.rating + "⭐";
+reviewList.appendChild(li);
+});
+
+</script>
+
+</body>
+</html>

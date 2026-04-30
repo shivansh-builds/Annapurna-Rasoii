@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu - Annapurna</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* QUICK FIX (if CSS not loading properly) */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#222;
+    padding:15px;
+    border-radius:10px;
+    text-align:center;
+    color:#fff;
+}
+
+.card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+button{
+    background:#C8A96A;
+    border:none;
+    padding:8px 12px;
+    cursor:pointer;
+}
+
+</style>
+
+<script defer src="js/menu.js"></script>
+</head>
+
+<body style="background:#111;color:#fff;">
+
+<header>
+<div class="container navbar">
+<h1 style="color:#C8A96A;">Annapurna Menu</h1>
+</div>
+</header>
+
+<section class="container">
+
+<h2>Starters</h2>
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d" onerror="this.src='https://via.placeholder.com/300x200'">
+<h3>Chowmein</h3>
+<p>Stir-fried noodles with veggies</p>
+<p>₹120</p>
+<button onclick="addToCart('Chowmein')">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1601050690597-df0568f70950" onerror="this.src='https://via.placeholder.com/300x200'">
+<h3>Momos</h3>
+<p>Steamed dumplings with chutney</p>
+<p>₹100</p>
+<button onclick="addToCart('Momos')">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1625944525533-473f1c1d54e7" onerror="this.src='https://via.placeholder.com/300x200'">
+<h3>Manchurian</h3>
+<p>Spicy Indo-Chinese delight</p>
+<p>₹150</p>
+<button onclick="addToCart('Manchurian')">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b" onerror="this.src='https://via.placeholder.com/300x200'">
+<h3>Fried Rice</h3>
+<p>Classic vegetable fried rice</p>
+<p>₹130</p>
+<button onclick="addToCart('Fried Rice')">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1596797038530-2c107aa4c0b6" onerror="this.src='https://via.placeholder.com/300x200'">
+<h3>Paneer Tikka</h3>
+<p>Grilled paneer with spices</p>
+<p>₹220</p>
+<button onclick="addToCart('Paneer Tikka')">Add to Cart</button>
+</div>
+
+</div>
+
+<h2>Main Course</h2>
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398" onerror="this.src='https://via.placeholder.com/300x200'">
+<h3>Paneer Butter Masala</h3>
+<p>Rich creamy tomato gravy</p>
+<p>₹260</p>
+<button onclick="addToCart('Paneer Butter Masala')">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1628294896516-32e0d7fbb7e3" onerror="this.src='https://via.placeholder.com/300x200'">
+<h3>Dal Fry</h3>
+<p>Yellow dal with tadka</p>
+<p>₹150</p>
+<button onclick="addToCart('Dal Fry')">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1617196038435-0c1d7b89c89e" onerror="this.src='https://via.placeholder.com/300x200'">
+<h3>Mix Veg</h3>
+<p>Seasonal vegetables curry</p>
+<p>₹180</p>
+<button onclick="addToCart('Mix Veg')">Add to Cart</button>
+</div>
+
+</div>
+
+<h2>Drinks & Beverages</h2>
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1551024601-bec78aea704b" onerror="this.src='https://via.placeholder.com/300x200'">
+<h3>Mojito</h3>
+<p>Mint refreshing drink</p>
+<p>₹120</p>
+<button onclick="addToCart('Mojito')">Add</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1546173159-315724a31696" onerror="this.src='https://via.placeholder.com/300x200'">
+<h3>Mocktail</h3>
+<p>Mixed fruit delight</p>
+<p>₹140</p>
+<button onclick="addToCart('Mocktail')">Add</button>
+</div>
+
+</div>
+
+</section>
+
+<!-- POPUP -->
+<div id="popup" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);justify-content:center;align-items:center;">
+<div style="background:#fff;color:#000;padding:20px;border-radius:10px;">
+<p>✅ Item added to cart!</p>
+</div>
+</div>
+
+<script>
+function addToCart(item){
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+cart.push(item);
+localStorage.setItem("cart", JSON.stringify(cart));
+
+let popup = document.getElementById("popup");
+popup.style.display="flex";
+setTimeout(()=>popup.style.display="none",1500);
+}
+</script>
+
+</body>
+</html>
