@@ -56,8 +56,4 @@ User authentication (Admin Login)
 Cart page with checkout system
 Payment integration
 Backend (Node.js + Database)
-👨‍💻 Author
 
-Shivansh Srivastava
-
-⭐ If you like this project, give it a star!
