@@ -46,9 +46,7 @@ app.js
 Download or clone the repository
 Open the folder
 Run index.html using Live Server or browser
-🌐 Live Demo
 
-👉 (Add your Vercel link here after deployment)
 
 ⚠️ Note
 This project uses localStorage, so data is stored only in the browser
