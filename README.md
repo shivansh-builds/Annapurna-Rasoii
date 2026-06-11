@@ -48,12 +48,5 @@ Open the folder
 Run index.html using Live Server or browser
 
 
-⚠️ Note
-This project uses localStorage, so data is stored only in the browser
-No backend/database is used
-🎯 Future Improvements
-User authentication (Admin Login)
-Cart page with checkout system
-Payment integration
-Backend (Node.js + Database)
+
 
