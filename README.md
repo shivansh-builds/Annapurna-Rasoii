@@ -45,6 +45,7 @@ contact.html
 admin.html
 style.css
 app.js
+
 ⚙️ How to Run
 Download or clone the repository
 Open the folder
