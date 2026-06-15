@@ -9,6 +9,7 @@ Beautiful restaurant-themed UI
 Featured dishes section
 About Us section
 Responsive design
+
 🍜 Menu Page
 Categorized items (Starters, Main Course, Drinks & Beverages)
 Add to Cart functionality
@@ -23,6 +24,7 @@ Data stored using localStorage
 Contact form with validation
 Star rating system ⭐
 Customer reviews storage & display
+
 🧑‍💼 Admin Dashboard
 View all orders
 Update order status (Pending / Completed)
@@ -34,6 +36,7 @@ HTML5
 CSS3 (Responsive Design)
 JavaScript (Vanilla JS)
 LocalStorage (for data persistence)
+
 📂 Project Structure
 index.html
 menu.html
