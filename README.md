@@ -23,7 +23,9 @@ Table booking form
 Guest selection
 Date-based reservations
 Data stored using localStorage
+
 📩 Contact & Reviews
+
 Contact form with validation
 Star rating system ⭐
 Customer reviews storage & display
