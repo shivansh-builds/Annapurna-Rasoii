@@ -4,13 +4,16 @@ A fully functional and responsive restaurant management web application built us
 This project simulates a real-world restaurant system including menu ordering, table reservations, customer reviews, and an admin dashboard.
 
 🚀 Features
+
 🏠 Home Page
+
 Beautiful restaurant-themed UI
 Featured dishes section
 About Us section
 Responsive design
 
 🍜 Menu Page
+
 Categorized items (Starters, Main Course, Drinks & Beverages)
 Add to Cart functionality
 Image-based food display
@@ -26,7 +29,8 @@ Star rating system ⭐
 Customer reviews storage & display
 
 🧑‍💼 Admin Dashboard
-View all orders
+
+4View all orders
 Update order status (Pending / Completed)
 Manage payment status (Paid / Unpaid)
 View reservations
@@ -38,6 +42,7 @@ JavaScript (Vanilla JS)
 LocalStorage (for data persistence)
 
 📂 Project Structure
+
 index.html
 menu.html
 reservation.html
