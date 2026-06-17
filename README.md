@@ -30,7 +30,7 @@ Customer reviews storage & display
 
 🧑‍💼 Admin Dashboard
 
-4View all orders
+4 View all orders
 Update order status (Pending / Completed)
 Manage payment status (Paid / Unpaid)
 View reservations
