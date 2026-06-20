@@ -1,4 +1,4 @@
-🍽️ Annapurna Restaurant Management System
+🍽️  Annapurna Restaurant Management System
 
 A fully functional and responsive restaurant management web application built using HTML, CSS, and JavaScript.
 This project simulates a real-world restaurant system including menu ordering, table reservations, customer reviews, and an admin dashboard.
