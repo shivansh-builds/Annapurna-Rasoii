@@ -5,6 +5,7 @@ This project simulates a real-world restaurant system including menu ordering, t
 
 🚀 Features
 
+
 🏠 Home Page
 
 Beautiful restaurant-themed UI
