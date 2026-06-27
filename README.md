@@ -44,6 +44,7 @@ CSS3 (Responsive Design)
 JavaScript (Vanilla JS)
 LocalStorage (for data persistence)
 
+
 📂 Project Structure
 
 index.html
